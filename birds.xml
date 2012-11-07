@@ -1,0 +1,13 @@
+<?xml version="1.0" ?> 
+
+<!-- Feel free to add additional child elements to each bird root element -->
+<bird>
+	<name>American Robin</name> 
+	<genus>Turdus migratorius</genus>
+	<diet></diet>
+	<wingChord></wingChord>
+	<wingSpan></wingSpan>
+	<weight></weight>
+	<culmen></culmen>
+	<tarsus></tarsus>
+</bird>
