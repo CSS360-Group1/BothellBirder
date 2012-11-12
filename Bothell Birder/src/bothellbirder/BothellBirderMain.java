@@ -171,6 +171,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
         // it always has to be set to false in order to work
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         
+      // adding a comment for the purpose of github
         try { //try reading from the json file
             Bird bird = mapper.readValue(jsonFile, Bird.class);
             infoJTextArea.setText("");
