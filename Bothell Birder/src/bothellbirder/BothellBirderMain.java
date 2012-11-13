@@ -171,8 +171,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
             JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));    
             jp.nextToken(); // returns the Start Object
              
-            while(jp.nextToken() != JsonToken.END_ARRAY) {
-                
+            while(jp.nextToken() != JsonToken.END_ARRAY) {     
             String fieldName = jp.getCurrentName();
              
             //if we are at the name field, print the Value
@@ -196,8 +195,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
         }
         catch(Exception e) {
             System.err.print(e);
-        }
-          
+        }        
     }//GEN-LAST:event_searchJButtonActionPerformed
 
     /**
