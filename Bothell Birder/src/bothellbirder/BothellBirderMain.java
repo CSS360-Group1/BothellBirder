@@ -1,19 +1,11 @@
 package bothellbirder;
 
 import com.fasterxml.jackson.core.JsonFactory;
-import java.awt.Toolkit;
 import java.io.File;
-import java.io.IOException;
-
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -28,6 +20,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
     public BothellBirderMain() {
         initComponents();
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/bothellbirder/images/bird1.jpg"));
+        this.getRootPane().setDefaultButton(searchJButton); 
     }
 
     /**
@@ -39,7 +32,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnQuit = new javax.swing.JButton();
+        quitJButton = new javax.swing.JButton();
         titleJLabel = new javax.swing.JLabel();
         inputJTextField = new javax.swing.JTextField();
         searchJButton = new javax.swing.JButton();
@@ -57,10 +50,10 @@ public class BothellBirderMain extends javax.swing.JFrame {
         setTitle("Bothell Birder");
         setResizable(false);
 
-        btnQuit.setText("Quit");
-        btnQuit.addActionListener(new java.awt.event.ActionListener() {
+        quitJButton.setText("Quit");
+        quitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuitActionPerformed(evt);
+                quitJButtonActionPerformed(evt);
             }
         });
 
@@ -130,7 +123,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(207, 207, 207)
-                        .addComponent(btnQuit))
+                        .addComponent(quitJButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(infoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -148,7 +141,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(infoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnQuit)
+                .addComponent(quitJButton)
                 .addGap(32, 32, 32))
         );
 
@@ -156,12 +149,12 @@ public class BothellBirderMain extends javax.swing.JFrame {
         setBounds((screenSize.width-480)/2, (screenSize.height-437)/2, 480, 437);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitActionPerformed
+    private void quitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitJButtonActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_btnQuitActionPerformed
+    }//GEN-LAST:event_quitJButtonActionPerformed
 
     private void quitJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitJMenuItemActionPerformed
-        btnQuitActionPerformed(evt); // calls the Quit button
+        quitJButtonActionPerformed(evt); // calls the Quit button
     }//GEN-LAST:event_quitJMenuItemActionPerformed
 
     private void aboutJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutJMenuItemActionPerformed
@@ -170,7 +163,10 @@ public class BothellBirderMain extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutJMenuItemActionPerformed
 
     private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
-          try {
+        String searchStr = inputJTextField.getText();  
+        boolean birdFound = false;
+        infoJTextArea.setText(""); // clear the field
+        try {
             JsonFactory f = new JsonFactory();
             JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));    
             jp.nextToken(); // returns the Start Object
@@ -182,9 +178,20 @@ public class BothellBirderMain extends javax.swing.JFrame {
             //if we are at the name field, print the Value
              if("name".equals(fieldName)) {
                 jp.nextToken(); // move to value
-                infoJTextArea.append("Name:  " + jp.getText() + "\n");
+                
+                //if we've found the bird stop searching.
+                if(jp.getText().equalsIgnoreCase(searchStr)) {
+                     infoJTextArea.append("Name:  " + jp.getText() + "\n"); 
+                     birdFound = true;
+                     break;
+                }
              }
             }
+            // Later we'll develope our own Exception class to handle all errors.
+            if(!birdFound)
+               JOptionPane.showMessageDialog(null, "Wrong input!",
+                                         "Input Error", JOptionPane.ERROR_MESSAGE);
+                
            jp.close(); // close the parser stream
         }
         catch(Exception e) {
@@ -231,13 +238,13 @@ public class BothellBirderMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutJMenuItem;
     private javax.swing.JMenu actionJMenu;
     private javax.swing.JMenuBar birderJMenuBar;
-    private javax.swing.JButton btnQuit;
     private javax.swing.JMenu fileJMenu;
     private javax.swing.JMenu helpJMenu;
     private javax.swing.JScrollPane infoJScrollPane;
     private javax.swing.JTextArea infoJTextArea;
     private javax.swing.JTextField inputJTextField;
     private javax.swing.JMenuItem printJMenuItem;
+    private javax.swing.JButton quitJButton;
     private javax.swing.JMenuItem quitJMenuItem;
     private javax.swing.JButton searchJButton;
     private javax.swing.JLabel titleJLabel;

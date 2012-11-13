@@ -1,13 +1,18 @@
 {
  "birds" : [
     {
-        "name" : "Colibri"
+        "name" : "Colibri Y"
       , "color" : "Red"
     },
 
     {
         "name" : "SomeBird"
       , "color" : "Yellow"
+    },
+
+    {
+        "name" : "Colibri"
+      , "color" : "Blue"
     }
  ]
 }

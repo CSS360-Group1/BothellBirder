@@ -91,7 +91,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-                      <Component id="btnQuit" min="-2" max="-2" attributes="0"/>
+                      <Component id="quitJButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
@@ -115,19 +115,19 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="infoJScrollPane" min="-2" pref="201" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnQuit" min="-2" max="-2" attributes="0"/>
+              <Component id="quitJButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnQuit">
+    <Component class="javax.swing.JButton" name="quitJButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Quit"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuitActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitJButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="titleJLabel">
