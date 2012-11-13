@@ -1,13 +1,18 @@
 package bothellbirder;
 
+import com.fasterxml.jackson.core.JsonFactory;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -165,24 +170,31 @@ public class BothellBirderMain extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutJMenuItemActionPerformed
 
     private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
-        File jsonFile = new File("src/bothellbirder/birds.json");
-        ObjectMapper mapper = new ObjectMapper(); // can reuse, share globally
-        
-        // it always has to be set to false in order to work
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        
-      // adding a comment for the purpose of github
-        try { //try reading from the json file
-            Bird bird = mapper.readValue(jsonFile, Bird.class);
-            infoJTextArea.setText("");
-            infoJTextArea.append("Bird Name: " + bird.getName() + "\nBird Color: " + bird.getColor());
+          try {
+            JsonFactory f = new JsonFactory();
+            JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));
+            Bird bird = new Bird();
+            
+            jp.nextToken(); // returns the Start Object
+             
+            while(jp.nextToken() != JsonToken.END_ARRAY) {
+                
+            String fieldName = jp.getCurrentName();
+             
+            //if we are at the name field, print the Value
+             if("name".equals(fieldName)) {
+                jp.nextToken(); // move to value
+                infoJTextArea.append("Name:  " + jp.getText() + "\n");
+             }
+            }
+           jp.close();
         }
         catch(Exception e) {
-            System.out.print(e);
+            System.err.print(e);
         }
         
         
-        
+    
     }//GEN-LAST:event_searchJButtonActionPerformed
 
     /**

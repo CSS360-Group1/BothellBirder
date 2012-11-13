@@ -1,4 +1,13 @@
 {
-    "name" : "Colibri"
-  , "color" : "Red"
+ "birds" : [
+    {
+        "name" : "Colibri"
+      , "color" : "Red"
+    },
+
+    {
+        "name" : "SomeBird"
+      , "color" : "Yellow"
+    }
+ ]
 }
