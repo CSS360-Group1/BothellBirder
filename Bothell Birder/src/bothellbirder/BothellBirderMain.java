@@ -172,9 +172,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
     private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
           try {
             JsonFactory f = new JsonFactory();
-            JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));
-            Bird bird = new Bird();
-            
+            JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));    
             jp.nextToken(); // returns the Start Object
              
             while(jp.nextToken() != JsonToken.END_ARRAY) {
@@ -187,14 +185,12 @@ public class BothellBirderMain extends javax.swing.JFrame {
                 infoJTextArea.append("Name:  " + jp.getText() + "\n");
              }
             }
-           jp.close();
+           jp.close(); // close the parser stream
         }
         catch(Exception e) {
             System.err.print(e);
         }
-        
-        
-    
+          
     }//GEN-LAST:event_searchJButtonActionPerformed
 
     /**
