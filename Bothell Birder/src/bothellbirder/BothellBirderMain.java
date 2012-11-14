@@ -169,7 +169,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
         try {
             JsonFactory f = new JsonFactory();
             JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));    
-            jp.nextToken(); // returns the Start Object
+            jp.nextToken(); // returns the Start Object.....
              
             while(jp.nextToken() != JsonToken.END_ARRAY) {     
             String fieldName = jp.getCurrentName();
@@ -197,6 +197,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
         catch(Exception e) {
             System.err.print(e);
         }        
+        //hello
     }//GEN-LAST:event_searchJButtonActionPerformed
 
     /**
