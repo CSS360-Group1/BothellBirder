@@ -8,3 +8,6 @@ V. Miller
 T. Virgillo
 
 Details to be updated in the near(?) future.
+
+
+You might need the jackson library and if so those files are located in src/jackson
