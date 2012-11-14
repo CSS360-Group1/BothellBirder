@@ -190,7 +190,8 @@ public class BothellBirderMain extends javax.swing.JFrame {
             if(!birdFound)
                JOptionPane.showMessageDialog(null, "Wrong input!",
                                          "Input Error", JOptionPane.ERROR_MESSAGE);
-                
+              
+            
            jp.close(); // close the parser stream
         }
         catch(Exception e) {
