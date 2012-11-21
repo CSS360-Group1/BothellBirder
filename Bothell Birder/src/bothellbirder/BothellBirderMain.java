@@ -164,40 +164,11 @@ public class BothellBirderMain extends javax.swing.JFrame {
 
     private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
         String searchStr = inputJTextField.getText();  
-        boolean birdFound = false;
         infoJTextArea.setText(""); // clear the field
-        try {
-            JsonFactory f = new JsonFactory();
-            JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));    
-            jp.nextToken(); // returns the Start Object.....
-             
-            while(jp.nextToken() != JsonToken.END_ARRAY) {     
-            String fieldName = jp.getCurrentName();
-             
-            //if we are at the name field, print the Value
-             if("name".equals(fieldName)) {
-                jp.nextToken(); // move to value
-                
-                //if we've found the bird stop searching.
-                if(jp.getText().equalsIgnoreCase(searchStr)) {
-                     infoJTextArea.append("Name:  " + jp.getText() + "\n"); 
-                     birdFound = true;
-                     break;
-                }
-             }
-            }
-            // Later we'll develope our own Exception class to handle all errors.
-            if(!birdFound)
-               JOptionPane.showMessageDialog(null, "Wrong input!",
-                                         "Input Error", JOptionPane.ERROR_MESSAGE);
-              
-            
-           jp.close(); // close the parser stream
-        }
-        catch(Exception e) {
-            System.err.print(e);
-        }        
-        //hello
+        Search obj = new Search(searchStr);
+        
+        // populate the text area with w.e toString returns
+        infoJTextArea.append(obj.toString());
     }//GEN-LAST:event_searchJButtonActionPerformed
 
     /**
