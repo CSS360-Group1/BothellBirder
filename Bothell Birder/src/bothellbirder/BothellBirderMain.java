@@ -1,12 +1,7 @@
 package bothellbirder;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import java.io.File;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 
 /**
@@ -15,6 +10,7 @@ import javax.swing.JOptionPane;
  */
 public class BothellBirderMain extends javax.swing.JFrame {
 
+    ArrayList<Bird> birds = new ArrayList<Bird>();
     /**
      * Creates new form BothellBirderMain
      */
@@ -73,6 +69,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
 
         infoJTextArea.setEditable(false);
         infoJTextArea.setColumns(20);
+        infoJTextArea.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
         infoJTextArea.setRows(5);
         infoJScrollPane.setViewportView(infoJTextArea);
 
@@ -183,29 +180,34 @@ public class BothellBirderMain extends javax.swing.JFrame {
 
     private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
         String searchStr = inputJTextField.getText();  
+        String searchCriteria = (String) searchCriteriaJComboBox.getSelectedItem();
+        
         infoJTextArea.setText(""); // clear the field
-        Search obj = new Search(searchStr);
+        Search obj = new Search(searchStr, searchCriteria);
         
         // populate the text area with w.e toString returns
-        infoJTextArea.append(obj.toString());
+        birds = obj.readData();
+        for(int i = 0; i < birds.size(); i++) {
+            infoJTextArea.append(birds.get(i).toString());
+        }
     }//GEN-LAST:event_searchJButtonActionPerformed
 
     private void actionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionPerformed
-        int selectedIndex = searchCriteriaJComboBox.getSelectedIndex();
-       // System.out.print(" Selected Index " + selectedIndex);
-        
-        populatePreData(selectedIndex);
+          populatePreData(searchCriteriaJComboBox.getSelectedIndex());
     }//GEN-LAST:event_actionPerformed
 
     private void populatePreData(int index) {   
+       genericJComboBox.removeAllItems();
+       
         switch(index) {
-            case 1: 
-                genericJComboBox.addItem("blue");
-                genericJComboBox.addItem("blues");
-                genericJComboBox.addItem("coolOne");
+            case 1:  
+                genericJComboBox.addItem("Blue");
+                genericJComboBox.addItem("Red");
+                genericJComboBox.addItem("Yellow");
+                genericJComboBox.addItem("Gray");
+                genericJComboBox.addItem("White");
                 break;
             default:
-                genericJComboBox.removeAllItems();
                 break;
         }
     }
