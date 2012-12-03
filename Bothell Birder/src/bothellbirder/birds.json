@@ -1,18 +1,21 @@
-{
- "birds" : [
+ {
+     "bird" : [
     {
         "name" : "Colibri Y"
       , "color" : "Red"
+      , "weight" : "5-7"
     },
 
     {
         "name" : "SomeBird"
       , "color" : "Yellow"
+      , "weight" : "5-6"
     },
 
     {
         "name" : "Colibri"
       , "color" : "Blue"
-    }
- ]
+      , "weight" : "5-6"
+    } 
+     ]
 }
