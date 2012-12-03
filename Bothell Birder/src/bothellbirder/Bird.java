@@ -8,9 +8,14 @@ package bothellbirder;
 public class Bird {
     private String m_color;
     private String m_name;
+    private String m_weight;
     
-    public String getName() {
-        
+    
+    public Bird() {
+        m_name = "";
+    }
+    
+    public String getName() {    
         return m_name;
     }
     
@@ -18,8 +23,7 @@ public class Bird {
         m_name = name;
     }
     
-    public String getColor() {
-        
+    public String getColor() {   
         return m_color;
     }
     
@@ -27,17 +31,16 @@ public class Bird {
         m_color = color;
     }
     
+    public String getWeight() {
+        return m_weight;
+    }
     
+    public void setWeight(String weight) {
+        m_weight = weight;
+    }
     
-//    public Bird() {
-//        m_name = "";
-//    }
-//    
-//    public Bird(String name) {
-//        m_name = name;
-//    }
-//    
-//    public String toString() {
-//        return "Name: " + m_name;
-//    }
+    @Override
+        public String toString() {
+        return "Name: " + m_name + ", Color: " + m_color + ", Weight: " + m_weight + "\n";
+    } 
 }
