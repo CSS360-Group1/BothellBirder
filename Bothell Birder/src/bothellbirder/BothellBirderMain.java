@@ -1,7 +1,9 @@
 package bothellbirder;
 
 import java.awt.Toolkit;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -37,6 +39,8 @@ public class BothellBirderMain extends javax.swing.JFrame {
         infoJTextArea = new javax.swing.JTextArea();
         searchCriteriaJComboBox = new javax.swing.JComboBox();
         genericJComboBox = new javax.swing.JComboBox();
+        pictureJLabel = new javax.swing.JLabel();
+        birdsJComboBox = new javax.swing.JComboBox();
         birderJMenuBar = new javax.swing.JMenuBar();
         fileJMenu = new javax.swing.JMenu();
         printJMenuItem = new javax.swing.JMenuItem();
@@ -80,6 +84,14 @@ public class BothellBirderMain extends javax.swing.JFrame {
             }
         });
 
+        genericJComboBox.setEnabled(false);
+
+        birdsJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actionPerformed2(evt);
+            }
+        });
+
         fileJMenu.setText("File");
 
         printJMenuItem.setText("Print");
@@ -117,48 +129,57 @@ public class BothellBirderMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(quitJButton)
-                .addContainerGap(209, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(genericJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(searchCriteriaJComboBox, 0, 83, Short.MAX_VALUE))
-                        .addGap(29, 29, 29)
-                        .addComponent(inputJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(searchJButton)
-                        .addGap(20, 20, 20)))
+                .addContainerGap(135, Short.MAX_VALUE)
+                .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91))
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(infoJScrollPane)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(searchCriteriaJComboBox, 0, 102, Short.MAX_VALUE)
+                            .addComponent(birdsJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(genericJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(inputJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pictureJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(quitJButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(infoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchJButton)
-                    .addComponent(searchCriteriaJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(genericJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(infoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchCriteriaJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(genericJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(birdsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pictureJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
+                .addComponent(infoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(quitJButton)
-                .addGap(32, 32, 32))
+                .addContainerGap())
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -183,24 +204,58 @@ public class BothellBirderMain extends javax.swing.JFrame {
         String searchCriteria = (String) searchCriteriaJComboBox.getSelectedItem();
         
         infoJTextArea.setText(""); // clear the field
-        Search obj = new Search(searchStr, searchCriteria);
         
-        // populate the text area with w.e toString returns
-        birds = obj.readData();
-        for(int i = 0; i < birds.size(); i++) {
-            infoJTextArea.append(birds.get(i).toString());
+        // if the genericComboBox is enabled 
+        if(genericJComboBox.isEnabled()) 
+            searchStr = (String) genericJComboBox.getSelectedItem();
+        
+        if(searchStr.equals(""))
+            System.out.print("No input!");
+        else {
+            Search obj = new Search(searchStr, searchCriteria);
+            // populate the drop down menu with
+            birds = obj.readData();
+
+            populateBirdsComboBox();
         }
     }//GEN-LAST:event_searchJButtonActionPerformed
 
+    private void populateBirdsComboBox() {
+        birdsJComboBox.removeAllItems();
+        if(!birds.isEmpty()) {
+                for(int i = 0; i < birds.size(); i++) {
+                    birdsJComboBox.addItem(birds.get(i).getName());
+                }
+        }
+    }
+    
+    // an action listener for the Categories Combo Box
     private void actionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionPerformed
           populatePreData(searchCriteriaJComboBox.getSelectedIndex());
     }//GEN-LAST:event_actionPerformed
 
+    // an action listener for the Birds Combo Box
+    private void actionPerformed2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionPerformed2
+       showBird(birdsJComboBox.getSelectedIndex());
+    }//GEN-LAST:event_actionPerformed2
+
+    // displays the birds, info in the text area and a picture of the bird
+    private void showBird(int index) {
+        if(index >= 0) {
+            infoJTextArea.setText("");
+            infoJTextArea.append(birds.get(index).toString());
+            pictureJLabel.setIcon(new ImageIcon("src/bothellbirder/images/" +
+                                          birds.get(index).getName() + ".jpg"));
+        }
+    }
     private void populatePreData(int index) {   
        genericJComboBox.removeAllItems();
-       
+       inputJTextField.setText("");
+           
         switch(index) {
             case 1:  
+                genericJComboBox.setEnabled(true);
+                inputJTextField.setEnabled(false);
                 genericJComboBox.addItem("Blue");
                 genericJComboBox.addItem("Red");
                 genericJComboBox.addItem("Yellow");
@@ -208,6 +263,8 @@ public class BothellBirderMain extends javax.swing.JFrame {
                 genericJComboBox.addItem("White");
                 break;
             default:
+                inputJTextField.setEnabled(true);
+                genericJComboBox.setEnabled(false);
                 break;
         }
     }
@@ -250,12 +307,14 @@ public class BothellBirderMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutJMenuItem;
     private javax.swing.JMenu actionJMenu;
     private javax.swing.JMenuBar birderJMenuBar;
+    private javax.swing.JComboBox birdsJComboBox;
     private javax.swing.JMenu fileJMenu;
     private javax.swing.JComboBox genericJComboBox;
     private javax.swing.JMenu helpJMenu;
     private javax.swing.JScrollPane infoJScrollPane;
     private javax.swing.JTextArea infoJTextArea;
     private javax.swing.JTextField inputJTextField;
+    private javax.swing.JLabel pictureJLabel;
     private javax.swing.JMenuItem printJMenuItem;
     private javax.swing.JButton quitJButton;
     private javax.swing.JMenuItem quitJMenuItem;

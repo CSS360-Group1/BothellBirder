@@ -9,10 +9,11 @@ public class Bird {
     private String m_color;
     private String m_name;
     private String m_weight;
-    
-    
+       
     public Bird() {
         m_name = "";
+        m_color = "";
+        m_weight = "";
     }
     
     public String getName() {    
@@ -41,6 +42,6 @@ public class Bird {
     
     @Override
         public String toString() {
-        return "Name: " + m_name + ", Color: " + m_color + ", Weight: " + m_weight + "\n";
+        return "Name: " + m_name + ", Color: " + m_color + ", Weight: " + m_weight + "lbs\n";
     } 
 }

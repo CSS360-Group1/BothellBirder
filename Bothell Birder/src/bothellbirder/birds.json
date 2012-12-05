@@ -11,6 +11,18 @@
       , "color" : "Yellow"
       , "weight" : "5-6"
     },
+    
+     {
+        "name" : "SomeBird2"
+      , "color" : "Yellow"
+      , "weight" : "5-6"
+    },
+    
+     {
+        "name" : "SomeBird3"
+      , "color" : "Yellow"
+      , "weight" : "5-6"
+    },
 
     {
         "name" : "Colibri"

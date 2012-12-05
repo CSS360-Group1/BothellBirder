@@ -29,7 +29,7 @@ public class Search {
             JsonFactory f = new JsonFactory();
             JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));    
             jp.nextToken(); // returns the Start Object
-            while(jp.nextToken() != JsonToken.END_ARRAY || jp.nextTextValue().equals("")) {  
+            while(jp.nextToken() != JsonToken.END_ARRAY || jp.nextTextValue().equals("]")) {  
                 Bird bird = new Bird();
                  
                  while(!jp.getText().equals("name"))
@@ -76,8 +76,7 @@ public class Search {
                   m_birds.add(bird);
                   dataFound = true;
                   addBird = false;
-               }
-               
+               } 
             }
             // Later we'll develope our own Exception class to handle all errors.
             if(!dataFound)
@@ -87,7 +86,7 @@ public class Search {
            jp.close(); // close the parser stream
         }
         catch(Exception e) {
-            System.err.print(e);
+            System.err.print(" Error: " + e);
         }        
     }
      
