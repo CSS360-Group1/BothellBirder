@@ -55,6 +55,13 @@ public class Search {
                    bird.setWeight(jp.getText()); 
                 }
                 
+                jp.nextToken();
+                
+                if("info".equals(jp.getCurrentName())) {
+                   jp.nextToken(); // move to value
+                   bird.setInfo(jp.getText()); 
+                }
+                
                 switch(m_criteria) {
                     case "name" :
                         if(bird.getName().equalsIgnoreCase(m_SearchStr))
@@ -77,16 +84,11 @@ public class Search {
                   dataFound = true;
                   addBird = false;
                } 
-            }
-            // Later we'll develope our own Exception class to handle all errors.
-            if(!dataFound)
-               JOptionPane.showMessageDialog(null, "No bird found!",
-                                         "Input Error", JOptionPane.ERROR_MESSAGE);
-                
+            }   
            jp.close(); // close the parser stream
         }
         catch(Exception e) {
-            System.err.print(" Error: " + e);
+          //  System.err.print(" Error: " + e);
         }        
     }
      

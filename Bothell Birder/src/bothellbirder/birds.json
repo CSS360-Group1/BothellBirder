@@ -1,33 +1,44 @@
- {
-     "bird" : [
+{
+    "bird" : [
     {
-        "name" : "Colibri Y"
-      , "color" : "Red"
-      , "weight" : "5-7"
+        "name" : "Killdeer"
+        , 
+        "color" : "Brown"
+        , 
+        "weight" : "75-125"
+        ,
+        "info" : "The range of the Killdeer spreads across the Western Hemisphere. In the summer, Killdeer live as far north as the Canadian provinces of British Columbia, the Yukon, Quebec, as well as the southern parts of the U.S. state of Alaska."
     },
 
     {
-        "name" : "SomeBird"
-      , "color" : "Yellow"
-      , "weight" : "5-6"
+        "name" : "American Goldfinch"
+        , 
+        "color" : "Yellow"
+        , 
+        "weight" : "10-20"
+        , 
+        "info" : "A small North American bird in the finch family. It is migratory, ranging from mid-Alberta to North Carolina during the breeding season, and from just south of the Canadian border to Mexico during the winter."
     },
     
-     {
-        "name" : "SomeBird2"
-      , "color" : "Yellow"
-      , "weight" : "5-6"
-    },
-    
-     {
-        "name" : "SomeBird3"
-      , "color" : "Yellow"
-      , "weight" : "5-6"
-    },
-
     {
-        "name" : "Colibri"
-      , "color" : "Blue"
-      , "weight" : "5-6"
-    } 
-     ]
+        "name" : "Northern Fulmar"
+        , 
+        "color" : "Gray"
+        , 
+        "weight" : "450-1000"
+        ,
+        "info" : " The Northern Fulmar and its sister, the Southern Fulmar, are the extant members of the genus Fulmarus."
+    },
+    
+    {
+        "name" : "Ring-billed Gull"
+        , 
+        "color" : "Gray"
+        , 
+        "weight" : "300-700"
+        ,
+        "info" : "They are migratory and most move south to the Gulf of Mexico and the Atlantic and Pacific coasts of North America, also the Great Lakes. This gull is a regular wanderer to western Europe. In Ireland and Great Britain it is no longer classed as a rarity, with several birds regularly wintering in these countries." 
+    }
+    
+    ]
 }
