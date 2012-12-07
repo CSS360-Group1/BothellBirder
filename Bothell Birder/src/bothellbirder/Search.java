@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import java.io.File;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  * @author Dimitar Dimitrov
@@ -22,16 +21,15 @@ public class Search {
     }
     
     public void parse() {
-        boolean dataFound = false;
         boolean addBird = false;
       
         try {
             JsonFactory f = new JsonFactory();
-            JsonParser jp = f.createJsonParser(new File("src/bothellbirder/birds.json"));    
+            JsonParser jp = f.createJsonParser(new File("birds.json"));    
             jp.nextToken(); // returns the Start Object
             while(jp.nextToken() != JsonToken.END_ARRAY || jp.nextTextValue().equals("]")) {  
                 Bird bird = new Bird();
-                 
+               
                  while(!jp.getText().equals("name"))
                      jp.nextToken();
                  
@@ -81,17 +79,15 @@ public class Search {
                 
                if(addBird) { // add the matching bird
                   m_birds.add(bird);
-                  dataFound = true;
                   addBird = false;
                } 
             }   
            jp.close(); // close the parser stream
         }
         catch(Exception e) {
-          //  System.err.print(" Error: " + e);
+          System.err.print(" Error: " + e);
         }        
-    }
-     
+    }    
     
     public ArrayList<Bird> readData() { 
         parse();

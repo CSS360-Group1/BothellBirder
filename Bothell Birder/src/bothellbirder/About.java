@@ -44,7 +44,7 @@ public class About extends javax.swing.JFrame {
         aboutTitleJLabel.setText("Bothell Birder About Form");
         aboutTitleJLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        aboutPictureJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bothellbirder/images/bird1.jpg"))); // NOI18N
+        aboutPictureJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bothellbirder/images/American Goldfinch.jpg"))); // NOI18N
 
         aboutCopyrightJLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         aboutCopyrightJLabel.setText("Copy Right 2012");
@@ -62,21 +62,21 @@ public class About extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(aboutPictureJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(aboutCopyrightJLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(aboutOkJButton)
-                        .addGap(53, 53, 53))))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(aboutTitleJLabel)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(aboutPictureJLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(aboutCopyrightJLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(aboutOkJButton)
+                        .addGap(53, 53, 53))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

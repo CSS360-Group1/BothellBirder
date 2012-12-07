@@ -19,7 +19,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
      */
     public BothellBirderMain() {
         initComponents();
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/bothellbirder/images/bird1.jpg"));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("images/American Goldfinch.jpg"));
         this.getRootPane().setDefaultButton(searchJButton); 
     }
 
@@ -47,6 +47,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
         printJMenuItem = new javax.swing.JMenuItem();
         quitJMenuItem = new javax.swing.JMenuItem();
         actionJMenu = new javax.swing.JMenu();
+        searchJMenuItem = new javax.swing.JMenuItem();
         helpJMenu = new javax.swing.JMenu();
         aboutJMenuItem = new javax.swing.JMenuItem();
 
@@ -111,6 +112,16 @@ public class BothellBirderMain extends javax.swing.JFrame {
         birderJMenuBar.add(fileJMenu);
 
         actionJMenu.setText("Action");
+
+        searchJMenuItem.setMnemonic('e');
+        searchJMenuItem.setText("Search");
+        searchJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJMenuItemActionPerformed(evt);
+            }
+        });
+        actionJMenu.add(searchJMenuItem);
+
         birderJMenuBar.add(actionJMenu);
 
         helpJMenu.setText("Help");
@@ -247,12 +258,16 @@ public class BothellBirderMain extends javax.swing.JFrame {
        showBird(birdsJComboBox.getSelectedIndex());
     }//GEN-LAST:event_actionPerformed2
 
+    private void searchJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJMenuItemActionPerformed
+       searchJButtonActionPerformed(evt);
+    }//GEN-LAST:event_searchJMenuItemActionPerformed
+
     // displays the birds' info in the text area and a picture of the bird
     private void showBird(int index) {
         if(index >= 0) {
             infoJTextArea.setText("");
             infoJTextArea.append(birds.get(index).toString());
-            pictureJLabel.setIcon(new ImageIcon("src/bothellbirder/images/" +
+            pictureJLabel.setIcon(new ImageIcon("images/" +
                                           birds.get(index).getName() + ".jpg"));
         }
     }
@@ -329,6 +344,7 @@ public class BothellBirderMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem quitJMenuItem;
     private javax.swing.JComboBox searchCriteriaJComboBox;
     private javax.swing.JButton searchJButton;
+    private javax.swing.JMenuItem searchJMenuItem;
     private javax.swing.JLabel titleJLabel;
     // End of variables declaration//GEN-END:variables
 }
